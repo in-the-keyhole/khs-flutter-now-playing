@@ -23,8 +23,6 @@ class LoginFormState extends State<LoginForm> {
   @override
   void initState() {
     super.initState();
-    usernameController.addListener(_printVals);
-    passwordController.addListener(_printVals);
   }
 
   @override
@@ -32,10 +30,6 @@ class LoginFormState extends State<LoginForm> {
     usernameController.dispose();
     passwordController.dispose();
     super.dispose();
-  }
-
-  void _printVals() {
-    print('Username: ${usernameController.text}, Password: ${passwordController.text}');
   }
 
   @override
