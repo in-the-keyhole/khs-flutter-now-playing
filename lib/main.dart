@@ -58,12 +58,12 @@ class App extends StatelessWidget {
     redirect: (state) {
       // if the user is not logged in, they need to login
       final loggedIn = authService.isLoggedIn;
-      final loggingIn = state.subloc == '/login';
-      if (!loggedIn) return loggingIn ? null : '/login';
+      final loggingIn = state.subloc == '/';
+      if (!loggedIn) return loggingIn ? null : '/';
 
       // if the user is logged in but still on the login page, send them to
       // the home page
-      if (loggingIn) return '/';
+      if (loggingIn) return '/movies';
 
       // no need to redirect at all
       return null;
