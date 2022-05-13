@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:khs_flutter_web_now_playing/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 class MovieListScreenHeader extends StatelessWidget {
   const MovieListScreenHeader({
@@ -7,6 +9,10 @@ class MovieListScreenHeader extends StatelessWidget {
   }) : super(key: key);
 
   final TextEditingController filterController;
+
+  void handleLogout(BuildContext context) {
+    context.read<AuthService>().logout();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +68,7 @@ class MovieListScreenHeader extends StatelessWidget {
                 margin: const EdgeInsets.only(right: 10),
               ),
               OutlinedButton(
-                onPressed: () {
-                  print('mao wow');
-                },
+                onPressed: () => handleLogout(context),
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(
                     color: Colors.white,
