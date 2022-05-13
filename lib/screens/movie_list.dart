@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:khs_flutter_web_now_playing/models/movie.dart';
 
 import 'movie_list_screen_header.dart';
@@ -41,6 +42,10 @@ class _MovieListScreenState extends State<MovieListScreen> {
     });
   }
 
+  void handleMovieNavigation(int id, BuildContext context) {
+    context.go("/movies/$id");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +58,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
               children: filteredMovieList
                   .map(
                     (m) => InkWell(
-                      onTap: () {
-                        print("tapped image with title: ${m.title}");
-                      },
+                      onTap: () => handleMovieNavigation(m.id, context),
                       child: Image(
                         key: ObjectKey(m.id),
                         image: AssetImage(
