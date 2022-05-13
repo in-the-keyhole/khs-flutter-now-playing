@@ -26,7 +26,8 @@ class _MovieListScreenState extends State<MovieListScreen> {
     filterController.addListener(_onFilterChange);
   }
 
-  @override void dispose() {
+  @override
+  void dispose() {
     filterController.dispose();
     super.dispose();
   }
@@ -51,9 +52,16 @@ class _MovieListScreenState extends State<MovieListScreen> {
             Wrap(
               children: filteredMovieList
                   .map(
-                    (m) => Image(
-                      key: ObjectKey(m.id),
-                      image: AssetImage('assets/images/posters${m.posterPath}'),
+                    (m) => InkWell(
+                      onTap: () {
+                        print("tapped image with title: ${m.title}");
+                      },
+                      child: Image(
+                        key: ObjectKey(m.id),
+                        image: AssetImage(
+                          'assets/images/posters${m.posterPath}',
+                        ),
+                      ),
                     ),
                   )
                   .toList(),
