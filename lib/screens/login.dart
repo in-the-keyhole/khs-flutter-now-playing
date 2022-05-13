@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:khs_flutter_web_now_playing/services/auth_service.dart';
 import 'package:khs_flutter_web_now_playing/widgets/login_form.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +10,6 @@ class Login extends StatelessWidget {
 
   void handleSubmit(String username, String password, BuildContext context) async {
     await context.read<AuthService>().authenticateUser(username, password);
-    context.go('/movies');
   }
 
   @override
