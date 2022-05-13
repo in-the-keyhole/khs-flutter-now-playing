@@ -46,6 +46,20 @@ class _MovieListScreenState extends State<MovieListScreen> {
     context.go("/movies/$id");
   }
 
+  Iterable<InkWell> getFilteredMovieWidgets(BuildContext context) {
+    return filteredMovieList.map(
+      (m) => InkWell(
+        onTap: () => handleMovieNavigation(m.id, context),
+        child: Image(
+          key: ObjectKey(m.id),
+          image: AssetImage(
+            'assets/images/posters${m.posterPath}',
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,19 +69,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
           children: [
             MovieListScreenHeader(filterController: filterController),
             Wrap(
-              children: filteredMovieList
-                  .map(
-                    (m) => InkWell(
-                      onTap: () => handleMovieNavigation(m.id, context),
-                      child: Image(
-                        key: ObjectKey(m.id),
-                        image: AssetImage(
-                          'assets/images/posters${m.posterPath}',
-                        ),
-                      ),
-                    ),
-                  )
-                  .toList(),
+              children: [...getFilteredMovieWidgets(context)],
             ),
           ],
         ),

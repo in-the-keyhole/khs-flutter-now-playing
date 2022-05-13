@@ -49,7 +49,7 @@ class App extends StatelessWidget {
             path: ':id',
             pageBuilder: (context, state) => NoTransitionPage<void>(
               key: state.pageKey,
-              child: const MovieDetail(),
+              child: MovieDetail(movieId: int.parse(state.params['id']!)),
             ),
           )
         ],

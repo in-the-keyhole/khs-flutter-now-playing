@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khs_flutter_web_now_playing/api/fetch_movies.dart';
 import 'package:khs_flutter_web_now_playing/models/movie_list.dart';
-import 'package:khs_flutter_web_now_playing/screens/movie_list.dart';
+import 'package:khs_flutter_web_now_playing/screens/movie_list_screen.dart';
 
 class Movies extends StatefulWidget {
   const Movies({Key? key}) : super(key: key);
@@ -23,16 +23,17 @@ class _MoviesState extends State<Movies> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-          future: futureMovieList,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return MovieListScreen(movieList: (snapshot.data as MovieList).results.toList());
-            } else if (snapshot.hasError) {
-              return Text('There was an error: ${snapshot.error}');
-            }
+        future: futureMovieList,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return MovieListScreen(movieList: (snapshot.data as MovieList).results.toList());
+          } else if (snapshot.hasError) {
+            return Text('There was an error: ${snapshot.error}');
+          }
 
-            return const CircularProgressIndicator();
-          },),
+          return const CircularProgressIndicator();
+        },
+      ),
     );
   }
 }
