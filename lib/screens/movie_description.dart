@@ -27,7 +27,7 @@ class MovieDescription extends StatelessWidget {
                   fontSize: 28,
                 ),
               ),
-              margin: EdgeInsets.only(bottom: 20),
+              margin: const EdgeInsets.only(bottom: 20),
             ),
             Text(
               movie.overview,

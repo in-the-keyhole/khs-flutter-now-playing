@@ -49,7 +49,9 @@ class _MovieListScreenState extends State<MovieListScreen> {
   Iterable<InkWell> getFilteredMovieWidgets(BuildContext context) {
     return filteredMovieList.map(
       (m) => InkWell(
-        onTap: () => handleMovieNavigation(m.id, context),
+        onTap: () {
+          handleMovieNavigation(m.id, context);
+        },
         child: Image(
           key: ObjectKey(m.id),
           image: AssetImage(
