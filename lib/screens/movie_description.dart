@@ -38,7 +38,7 @@ class MovieDescription extends StatelessWidget {
               ),
             ),
           ],
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
         ),
       ),
     );
