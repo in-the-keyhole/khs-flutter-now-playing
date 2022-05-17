@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:khs_flutter_web_now_playing/api/fetch_movie.dart';
 
 import '../models/movie.dart';
-import 'movie_description.dart';
+import '../widgets/movie_description.dart';
 
 class MovieDetail extends StatefulWidget {
   final int movieId;
