@@ -68,7 +68,9 @@ class _MovieListScreenState extends State<MovieListScreen> {
               left: 15,
               bottom: 15,
             ),
-            child: RatingBar(rating: m.rating,),
+            child: RatingBar(
+              rating: m.rating,
+            ),
           )
         ],
       ),

@@ -21,19 +21,17 @@ class _MoviesState extends State<Movies> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder(
-        future: futureMovieList,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return MovieListScreen(movieList: (snapshot.data as MovieList).results.toList());
-          } else if (snapshot.hasError) {
-            return Text('There was an error: ${snapshot.error}');
-          }
+    return FutureBuilder(
+      future: futureMovieList,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return MovieListScreen(movieList: (snapshot.data as MovieList).results.toList());
+        } else if (snapshot.hasError) {
+          return Text('There was an error: ${snapshot.error}');
+        }
 
-          return const CircularProgressIndicator();
-        },
-      ),
+        return const CircularProgressIndicator();
+      },
     );
   }
 }

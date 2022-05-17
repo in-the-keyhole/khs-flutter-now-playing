@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:go_router/go_router.dart';
-import 'package:khs_flutter_web_now_playing/screens/movie_detail.dart';
-import 'package:khs_flutter_web_now_playing/screens/movies.dart';
+import 'package:khs_flutter_web_now_playing/widgets/movie_detail.dart';
+import 'package:khs_flutter_web_now_playing/widgets/movies.dart';
 import 'package:khs_flutter_web_now_playing/services/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'screens/login.dart';
