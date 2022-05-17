@@ -50,6 +50,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
   Iterable<Stack> getFilteredMovieWidgets(BuildContext context) {
     return _filteredMovieList.map(
       (m) => Stack(
+        key: ObjectKey(m.id),
         alignment: AlignmentDirectional.bottomStart,
         children: [
           InkWell(
@@ -57,7 +58,6 @@ class _MovieListScreenState extends State<MovieListScreen> {
               _handleMovieNavigation(m.id, context);
             },
             child: Image(
-              key: ObjectKey(m.id),
               image: AssetImage(
                 'assets/images/posters${m.posterPath}',
               ),
