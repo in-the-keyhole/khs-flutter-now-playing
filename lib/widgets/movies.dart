@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:khs_flutter_web_now_playing/api/fetch_movies.dart';
-import 'package:khs_flutter_web_now_playing/models/movie_list.dart';
-import 'package:khs_flutter_web_now_playing/screens/movie_list_screen.dart';
+import '../api/fetch_movies.dart';
+import '../models/movie_list.dart';
+import '../screens/movie_list_screen.dart';
 
 class Movies extends StatefulWidget {
   const Movies({Key? key}) : super(key: key);

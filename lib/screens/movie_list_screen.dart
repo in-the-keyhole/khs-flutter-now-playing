@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:khs_flutter_web_now_playing/models/movie.dart';
-import 'package:khs_flutter_web_now_playing/widgets/rating_bar.dart';
+import '../models/movie.dart';
+import '../widgets/rating_bar.dart';
 
 import 'movie_list_screen_header.dart';
 

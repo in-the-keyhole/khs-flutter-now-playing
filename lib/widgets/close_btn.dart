@@ -11,13 +11,13 @@ class CloseBtn extends StatefulWidget {
 class _CloseBtnState extends State<CloseBtn> {
   Color _closeIconColor = Colors.white60;
 
-  void _onEnterCloseButton(PointerEvent pe) {
+  void _onEnterCloseButton() {
     setState(() {
       _closeIconColor = Colors.lightBlue;
     });
   }
 
-  void _onLeaveCloseButton(PointerEvent pe) {
+  void _onLeaveCloseButton() {
     setState(() {
       _closeIconColor = Colors.white60;
     });
@@ -26,8 +26,8 @@ class _CloseBtnState extends State<CloseBtn> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: _onEnterCloseButton,
-      onExit: _onLeaveCloseButton,
+      onEnter: (_) => _onEnterCloseButton(),
+      onExit: (_) => _onLeaveCloseButton(),
       child: IconButton(
         onPressed: () => widget.onClose(context),
         icon: const Icon(Icons.close),

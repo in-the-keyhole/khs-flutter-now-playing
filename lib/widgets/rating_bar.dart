@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'rating_star.dart';
 
 class RatingBar extends StatefulWidget {
   final int? rating;
@@ -10,22 +11,43 @@ class RatingBar extends StatefulWidget {
 }
 
 class _RatingBarState extends State<RatingBar> {
-  late int currentRating;
+  late int _currentRating;
+  int _hoverIndex = -1;
 
   @override
   void initState() {
-    currentRating = widget.rating ?? 0;
+    _currentRating = widget.rating ?? 0;
     super.initState();
   }
 
-  Iterable<Widget> getStars() {
-    return Iterable.generate(5, (index) {
-      return Icon(
-        currentRating > index ? Icons.star : Icons.star_border_outlined,
-        key: ObjectKey(index),
-        color: currentRating > index ? Colors.yellowAccent : Colors.white,
-      );
+  void _onEnterStar(int index) {
+    setState(() {
+      _hoverIndex = index;
     });
+  }
+
+  void _onLeaveStar(int index) {
+    setState(() {
+      _hoverIndex = -1;
+    });
+  }
+
+  Iterable<Widget> getStars() {
+    return Iterable.generate(
+      5,
+      (index) {
+        return MouseRegion(
+          key: ObjectKey(index),
+          cursor: SystemMouseCursors.click,
+          onEnter: (_) => _onEnterStar(index),
+          onExit: (_) => _onLeaveStar(index),
+          child: RatingStar(
+            filled: _currentRating > index,
+            highlighted: _hoverIndex >= index,
+          ),
+        );
+      },
+    );
   }
 
   @override
