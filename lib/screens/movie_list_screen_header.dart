@@ -55,7 +55,8 @@ class MovieListScreenHeader extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.red, width: 1),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.redAccent, width: 1),
+                        borderSide:
+                            BorderSide(color: Colors.redAccent, width: 1),
                       ),
                       hintText: 'Search...',
                       hintStyle: TextStyle(color: Colors.grey),

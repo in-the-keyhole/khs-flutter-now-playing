@@ -25,7 +25,8 @@ class MovieDetailScreen extends StatelessWidget {
             children: [
               Image(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/images/backdrops/${movie.backdropPath}'),
+                image:
+                    AssetImage('assets/images/backdrops/${movie.backdropPath}'),
               ),
               Column(
                 children: [

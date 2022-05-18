@@ -6,7 +6,8 @@ import '../models/movie.dart';
 import 'package:http/http.dart' as http;
 
 Future<Movie> fetchMovie(int id) async {
-  final response = await http.get(Uri.parse('http://localhost:3001/api/movies/$id'));
+  final response =
+      await http.get(Uri.parse('http://localhost:3001/api/movies/$id'));
 
   if (response.statusCode == 200) {
     return deserialize<Movie>(jsonDecode(response.body));

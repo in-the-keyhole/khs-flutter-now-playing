@@ -25,7 +25,8 @@ class _MoviesState extends State<Movies> {
       future: futureMovieList,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return MovieListScreen(movieList: (snapshot.data as MovieList).results.toList());
+          return MovieListScreen(
+              movieList: (snapshot.data as MovieList).results.toList());
         } else if (snapshot.hasError) {
           return Text('There was an error: ${snapshot.error}');
         }

@@ -42,7 +42,8 @@ class _MovieListScreenState extends State<MovieListScreen> {
     var loweredFilterText = _filterController.text.toLowerCase();
     setState(() {
       _filteredMovieList = _baseList
-          .where((movie) => movie.title.toLowerCase().contains(loweredFilterText))
+          .where(
+              (movie) => movie.title.toLowerCase().contains(loweredFilterText))
           .toList();
     });
   }

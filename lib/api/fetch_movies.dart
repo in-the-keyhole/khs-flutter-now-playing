@@ -5,7 +5,8 @@ import 'dart:convert';
 import '../models/serializers.dart';
 
 Future<MovieList> fetchMovies() async {
-  final response = await http.get(Uri.parse('http://localhost:3001/api/nowPlaying'));
+  final response =
+      await http.get(Uri.parse('http://localhost:3001/api/nowPlaying'));
 
   if (response.statusCode == 200) {
     return deserialize<MovieList>(jsonDecode(response.body));

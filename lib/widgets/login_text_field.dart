@@ -6,13 +6,13 @@ class LoginTextField extends StatelessWidget {
   final TextEditingController? controller;
   final bool obscureText;
 
-  const LoginTextField({
-    Key? key,
-    required this.labelText,
-    required this.errorText,
-    this.controller,
-    this.obscureText = false
-  }) : super(key: key);
+  const LoginTextField(
+      {Key? key,
+      required this.labelText,
+      required this.errorText,
+      this.controller,
+      this.obscureText = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

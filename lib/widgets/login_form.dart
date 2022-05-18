@@ -78,7 +78,8 @@ class LoginFormState extends State<LoginForm> {
               if (_formKey.currentState!.validate()) {
                 // If the form is valid, display a snackbar. In the real world,
                 // you'd often call a server or save the information in a database.
-                widget.onSubmit(usernameController.text, passwordController.text);
+                widget.onSubmit(
+                    usernameController.text, passwordController.text);
               }
             },
             child: const Text('Login'),

@@ -8,7 +8,8 @@ class Login extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  void handleSubmit(String username, String password, BuildContext context) async {
+  void handleSubmit(
+      String username, String password, BuildContext context) async {
     await context.read<AuthService>().authenticateUser(username, password);
   }
 
@@ -41,7 +42,8 @@ class Login extends StatelessWidget {
                 children: [
                   Container(
                     child: LoginForm(
-                      onSubmit: (String username, String password) => handleSubmit(username, password, context),
+                      onSubmit: (String username, String password) =>
+                          handleSubmit(username, password, context),
                     ),
                     width: 400,
                     color: Colors.white,

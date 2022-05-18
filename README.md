@@ -4,13 +4,14 @@ Now Playing Flutter app
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Download and install flutter
+2. Download and install node.js
+3. clone this project
+4. change directories into the mock_server folder and run ``npm install`` to install the mock server dependencies
+5. change directories back to the root project directory
+6. run ``flutter pub get`` to install the flutter app dependencies
+7. run ``flutter packages pub run build_runner build`` in the root project directory to execute the built_value JSON serializer code generator
+8. run ``flutter run -d chrome`` to execute the flutter app in the chrome browser
+9. use username "jdoe" and password "password" to login
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

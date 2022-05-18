@@ -14,10 +14,11 @@ part 'serializers.g.dart';
   MovieList,
   DateRange,
 ])
-final Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
+final Serializers serializers =
+    (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
 
-T deserialize<T>(dynamic value) =>
-    serializers.deserializeWith<T>(serializers.serializerForType(T) as Serializer<T>, value)!;
+T deserialize<T>(dynamic value) => serializers.deserializeWith<T>(
+    serializers.serializerForType(T) as Serializer<T>, value)!;
 
-BuiltList<T> deserializeListOf<T>(dynamic value) =>
-    BuiltList.from(value.map((value) => deserialize<T>(value)).toList(growable: false));
+BuiltList<T> deserializeListOf<T>(dynamic value) => BuiltList.from(
+    value.map((value) => deserialize<T>(value)).toList(growable: false));
