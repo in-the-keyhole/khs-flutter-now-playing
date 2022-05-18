@@ -4,6 +4,8 @@ Now Playing Flutter app
 
 ## Getting Started
 
+Note: mock_server has not been added yet
+
 1. Download and install flutter
 2. Download and install node.js
 3. clone this project
