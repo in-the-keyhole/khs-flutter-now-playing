@@ -3,22 +3,22 @@ import 'rating_star.dart';
 
 class RatingBar extends StatefulWidget {
   final int? rating;
+  final int movieId;
+  final Function(int movieId, int newRating) onRatingClick;
 
-  const RatingBar({Key? key, required this.rating}) : super(key: key);
+  const RatingBar({
+    Key? key,
+    required this.rating,
+    required this.movieId,
+    required this.onRatingClick,
+  }) : super(key: key);
 
   @override
   State<RatingBar> createState() => _RatingBarState();
 }
 
 class _RatingBarState extends State<RatingBar> {
-  late int _currentRating;
   int _hoverIndex = -1;
-
-  @override
-  void initState() {
-    _currentRating = widget.rating ?? 0;
-    super.initState();
-  }
 
   void _onEnterStar(int index) {
     setState(() {
@@ -32,18 +32,25 @@ class _RatingBarState extends State<RatingBar> {
     });
   }
 
+  void _onStarClick(int index) {
+    widget.onRatingClick(widget.movieId, index + 1);
+  }
+
   Iterable<Widget> getStars() {
     return Iterable.generate(
       5,
       (index) {
-        return MouseRegion(
+        return InkWell(
           key: ObjectKey(index),
-          cursor: SystemMouseCursors.click,
-          onEnter: (_) => _onEnterStar(index),
-          onExit: (_) => _onLeaveStar(index),
-          child: RatingStar(
-            filled: _currentRating > index,
-            highlighted: _hoverIndex >= index,
+          onTap: () => _onStarClick(index),
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            onEnter: (_) => _onEnterStar(index),
+            onExit: (_) => _onLeaveStar(index),
+            child: RatingStar(
+              filled: (widget.rating ?? 0) > index,
+              highlighted: _hoverIndex >= index,
+            ),
           ),
         );
       },
